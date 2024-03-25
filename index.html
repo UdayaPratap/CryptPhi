@@ -263,10 +263,6 @@
         </div>
       </section>
 
-
-
-
-
       <!-- 
         - #MARKET
       -->
@@ -342,79 +338,59 @@
 
               <tbody class="table-body">
 
-                <tr class="table-row">
-
+                <tr id="bitcoin-row" class="table-row">
                   <td class="table-data">
-                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                    </button>
+                      <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                          <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                          <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                      </button>
                   </td>
-
                   <th class="table-data rank" scope="row">1</th>
-
                   <td class="table-data">
-                    <div class="wrapper">
-                      <img src="./assets/images/coin-1.svg" width="20" height="20" alt="Bitcoin logo" class="img">
-
-                      <h3>
-                        <a href="#" class="coin-name">Bitcoin <span class="span">BTC</span></a>
-                      </h3>
-                    </div>
+                      <div class="wrapper">
+                          <img src="./assets/images/coin-1.svg" width="20" height="20" alt="Bitcoin logo" class="img">
+                          <h3>
+                              <a href="#" class="coin-name" id="bitcoin-name">Bitcoin <span class="span">BTC</span></a>
+                          </h3>
+                      </div>
                   </td>
-
-                  <td class="table-data last-price">$56,623.54</td>
-
-                  <td class="table-data last-update green">+1.45%</td>
-
-                  <td class="table-data market-cap">$880,423,640,582</td>
-
+                  <td class="table-data last-price" id="bitcoin-price"></td>
+                  <td class="table-data last-update green" id="bitcoin-change"></td>
+                  <td class="table-data market-cap" id="bitcoin-market-cap"></td>
                   <td class="table-data">
-                    <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
+                      <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
                   </td>
-
                   <td class="table-data">
-                    <button class="btn btn-outline">Trade</button>
+                      <button class="btn btn-outline">Trade</button>
                   </td>
+              </tr>
 
-                </tr>
-
-                <tr class="table-row">
-
-                  <td class="table-data">
+              <tr id="bitcoin-row" class="table-row">
+                <td class="table-data">
                     <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                        <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                        <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                     </button>
-                  </td>
-
-                  <th class="table-data rank" scope="row">2</th>
-
-                  <td class="table-data">
+                </td>
+                <th class="table-data rank" scope="row">1</th>
+                <td class="table-data">
                     <div class="wrapper">
-                      <img src="./assets/images/coin-2.svg" width="20" height="20" alt="Ethereum logo" class="img">
-
-                      <h3>
-                        <a href="#" class="coin-name">Ethereum <span class="span">ETH</span></a>
-                      </h3>
+                        <img src="./assets/images/coin-1.svg" width="20" height="20" alt="Bitcoin logo" class="img">
+                        <h3>
+                            <a href="#" class="coin-name" id="eth-name">Ethereum <span class="span">ETC</span></a>
+                        </h3>
                     </div>
-                  </td>
-
-                  <td class="table-data last-price">$56,623.54</td>
-
-                  <td class="table-data last-update red">-5.12%</td>
-
-                  <td class="table-data market-cap">$880,423,640,582</td>
-
-                  <td class="table-data">
-                    <img src="./assets/images/chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
-                  </td>
-
-                  <td class="table-data">
+                </td>
+                <td class="table-data last-price" id="eth-price"></td>
+                <td class="table-data last-update green" id="eth-change"></td>
+                <td class="table-data market-cap" id="eth-market-cap"></td>
+                <td class="table-data">
+                    <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
+                </td>
+                <td class="table-data">
                     <button class="btn btn-outline">Trade</button>
-                  </td>
-
-                </tr>
+                </td>
+            </tr>
 
                 <tr class="table-row">
 
@@ -1069,7 +1045,7 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+  <script src="script.js"></script>
 </body>
 
 </html>
