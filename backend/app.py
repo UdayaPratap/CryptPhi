@@ -32,23 +32,28 @@ def get_bitcoin_data():
 def get_eth_data():
     # Fetch live data for Bitcoin from Yahoo Finance
     eth = yf.Ticker("ETH-USD")
-    eth_data = eth.history(period='1m')  # Fetch data for the last minute
-
+    eth_data = eth.history(period='1d')  # Fetch data for the last minute
     # Check if btc_data has at least one row
     if len(eth_data) >= 1:
         # Extract the required data (e.g., last price, market cap)
         last_price = eth_data['Close'].iloc[-1]
         market_cap = last_price * eth.info['circulatingSupply']
+        # Calculate percentage change from 24 hours ago
+        open_price = eth_data['Open'].iloc[-1]
+        print(open_price)
+        print(last_price)
+        percentage_change = ((last_price - open_price) / open_price) * 100
     else:
-        last_price = None
-        market_cap = None
+        last_price = 1
+        market_cap = 1
+        percentage_change = 1
 
     eth_data = {
         "lastPrice": last_price,
-        "percentageChange": None,  # Can't calculate percentage change as there's no previous data point
-        "marketCap": market_cap
+        "percentageChange": percentage_change,  # Can't calculate percentage change as there's no previous data point
+        "marketCap": market_cap,
+        "openPrice": open_price
     }
-
     return jsonify(eth_data)
 
 @app.route('/api/tether', methods=['GET'])

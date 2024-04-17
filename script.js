@@ -9,7 +9,7 @@ function updateBitcoinData() {
             document.getElementById('bitcoin-price').textContent = '$' + data.lastPrice.toFixed(2);
             document.getElementById('bitcoin-change').textContent = data.percentageChange + '%';
             document.getElementById('bitcoin-market-cap').textContent = '$' + data.marketCap.toFixed(2);
-
+            
             document.getElementById('btcmain').textContent = '$' + data.lastPrice.toFixed(2);
 
         })
@@ -23,10 +23,22 @@ function updateEthereumData() {
         .then(data => {
             // Update HTML elements with live data from the backend
             document.getElementById('eth-price').textContent = '$' + data.lastPrice.toFixed(2);
-            document.getElementById('eth-change').textContent = data.percentageChange + '%';
-            document.getElementById('eth-market-cap').textContent = '$' + data.marketCap.toFixed(2);
-
+            var ethChangeElement = document.getElementById('eth-change');
+            ethChangeElement.textContent = data.percentageChange.toFixed(2) + '%';
+            // Change color to red if the change is negative
+            if (data.percentageChange < 0) {
+                ethChangeElement.style.color = 'red';
+            }
+            document.getElementById('eth-market-cap').textContent = '$' + Number(data.marketCap.toFixed(2)).toLocaleString('en-US');
             document.getElementById('ethmain').textContent = '$' + data.lastPrice.toFixed(2);
+            document.getElementById('ethopen').textContent = '$' + data.openPrice.toFixed(2);
+            var ethDelta = document.getElementById('ethdelta');
+            ethDelta.textContent = data.percentageChange.toFixed(2) + '%';
+            if (data.percentageChange < 0) {
+                ethDelta.style.color = 'red';
+            }else{
+                ethDelta.style.color='green';
+            }
         })
         .catch(error => console.error('Error fetching ETH data:', error));
 }
