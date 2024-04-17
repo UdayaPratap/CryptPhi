@@ -9,6 +9,9 @@ function updateBitcoinData() {
             document.getElementById('bitcoin-price').textContent = '$' + data.lastPrice.toFixed(2);
             document.getElementById('bitcoin-change').textContent = data.percentageChange + '%';
             document.getElementById('bitcoin-market-cap').textContent = '$' + data.marketCap.toFixed(2);
+
+            document.getElementById('btcmain').textContent = '$' + data.lastPrice.toFixed(2);
+
         })
         .catch(error => console.error('Error fetching Bitcoin data:', error));
 }
@@ -22,6 +25,8 @@ function updateEthereumData() {
             document.getElementById('eth-price').textContent = '$' + data.lastPrice.toFixed(2);
             document.getElementById('eth-change').textContent = data.percentageChange + '%';
             document.getElementById('eth-market-cap').textContent = '$' + data.marketCap.toFixed(2);
+
+            document.getElementById('ethmain').textContent = '$' + data.lastPrice.toFixed(2);
         })
         .catch(error => console.error('Error fetching ETH data:', error));
 }
@@ -35,6 +40,8 @@ function updateTetherData() {
             document.getElementById('Tether-price').textContent = '$' + data.lastPrice.toFixed(2);
             document.getElementById('Tether-change').textContent = data.percentageChange + '%';
             document.getElementById('Tether-market-cap').textContent = '$' + data.marketCap.toFixed(2);
+
+            document.getElementById('tethmain').textContent = '$' + data.lastPrice.toFixed(2);
         })
         .catch(error => console.error('Error fetching Tether data:', error));
 }
@@ -49,6 +56,8 @@ function updateBNBData() {
             document.getElementById('BNB-price').textContent = '$' + data.lastPrice.toFixed(2);
             document.getElementById('BNB-change').textContent = data.percentageChange + '%';
             document.getElementById('BNB-market-cap').textContent = '$' + data.marketCap.toFixed(2);
+
+            document.getElementById('bnbmain').textContent = '$' + data.lastPrice.toFixed(2);
         })
         .catch(error => console.error('Error fetching BNB data:', error));
 }
