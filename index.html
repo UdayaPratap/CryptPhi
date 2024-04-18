@@ -75,7 +75,7 @@
         <span class="line line-3"></span>
       </button>
 
-      <a href="#" class="btn btn-outline">Wallet</a>
+      <a href="https://wazirx.com/exchange" class="btn btn-outline">Wallet</a>
 
     </div>
   </header>
@@ -182,7 +182,7 @@
                   <data class="card-value" value="46168.95" id="btcmain">USD 46,168.95</data>
 
                   <div class="card-analytics">
-                    <data class="btcopen" value="36641.20">36,641.20</data>
+                    <data id="btcopen" value="36641.20">36,641.20</data>
 
                     <div id="btcdelta">-0.79%</div>
                   </div>
@@ -228,7 +228,7 @@
                   <div class="card-analytics">
                     <data class="current-price" value="36641.20" id="tethopen">36,641.20</data>
 
-                    <div class="badge red" id="tethdelta">-0.01%</div>
+                    <div id="tethdelta">-0.01%</div>
                   </div>
 
                 </div>
@@ -250,7 +250,7 @@
                   <div class="card-analytics">
                     <data class="current-price" value="36641.20" id="bnbopen">36,641.20</data>
 
-                    <div class="badge red" id="bnbdelta">-1.24%</div>
+                    <div id="bnbdelta">-1.24%</div>
                   </div>
 
                 </div>
@@ -277,38 +277,6 @@
           </div>
 
           <div class="market-tab">
-
-            <ul class="tab-nav">
-
-              <li>
-                <button class="tab-btn active">View All</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Metaverse</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Entertainment</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Energy</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">NFT</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Gaming</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Music</button>
-              </li>
-
-            </ul>
 
             <table class="market-table">
 
@@ -354,9 +322,9 @@
                           </h3>
                       </div>
                   </td>
-                  <td class="table-data last-price" id="bitcoin-price"></td>
-                  <td class="table-data last-update green" id="bitcoin-change"></td>
-                  <td class="table-data market-cap" id="bitcoin-market-cap"></td>
+                  <td class="table-data last-price" id="btc-price"></td>
+                  <td class="table-data last-update green" id="btc-change"></td>
+                  <td class="table-data market-cap" id="btc-market-cap"></td>
                   <td class="table-data">
                       <!-- <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart"> -->
                   </td>
@@ -365,7 +333,7 @@
                   </td>
               </tr>
 
-              <tr id="bitcoin-row" class="table-row">
+              <tr id="ethereum-row" class="table-row">
                 <td class="table-data">
                     <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
                         <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
@@ -375,7 +343,7 @@
                 <th class="table-data rank" scope="row">2</th>
                 <td class="table-data">
                     <div class="wrapper">
-                        <img src="./assets/images/coin-1.svg" width="20" height="20" alt="Bitcoin logo" class="img">
+                        <img src="./assets/images/coin-2.svg" width="20" height="20" alt="Bitcoin logo" class="img">
                         <h3>
                             <a href="#" class="coin-name" id="eth-name">Ethereum <span class="span">ETC</span></a>
                         </h3>
@@ -414,9 +382,9 @@
                     </div>
                   </td>
 
-                  <td class="table-data last-price" id="Tether-price"></td>
-                  <td class="table-data last-update green" id="Tether-change"></td>
-                  <td class="table-data market-cap" id="Tether-market-cap"></td>
+                  <td class="table-data last-price" id="teth-price"></td>
+                  <td class="table-data last-update green" id="teth-change"></td>
+                  <td class="table-data market-cap" id="teth-market-cap"></td>
 
                   <td class="table-data">
                     <!-- <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart"> -->
@@ -449,9 +417,9 @@
                     </div>
                   </td>
 
-                  <td class="table-data last-price" id="BNB-price"></td>
-                  <td class="table-data last-update green" id="BNB-change"></td>
-                  <td class="table-data market-cap" id="BNB-market-cap"></td>
+                  <td class="table-data last-price" id="bnb-price"></td>
+                  <td class="table-data last-update green" id="bnb-change"></td>
+                  <td class="table-data market-cap" id="bnb-market-cap"></td>
 
                   <td class="table-data">
                     <!-- <img src="./assets/images/chart-2.svg" width="100" height="40" alt="loss chart" class="chart"> -->
@@ -484,9 +452,9 @@
                     </div>
                   </td>
 
-                  <td class="table-data last-price" id="Solana-price"></td>
-                  <td class="table-data last-update green" id="Solana-change"></td>
-                  <td class="table-data market-cap" id="Solana-market-cap"></td>
+                  <td class="table-data last-price" id="sol-price"></td>
+                  <td class="table-data last-update green" id="sol-change"></td>
+                  <td class="table-data market-cap" id="sol-market-cap"></td>
 
                   <td class="table-data">
                     <!-- <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart"> -->
@@ -519,9 +487,9 @@
                     </div>
                   </td>
 
-                  <td class="table-data last-price" id="Litecoin-price"></td>
-                  <td class="table-data last-update green" id="Litecoin-change"></td>
-                  <td class="table-data market-cap" id="Litecoin-market-cap"></td>
+                  <td class="table-data last-price" id="ltc-price"></td>
+                  <td class="table-data last-update green" id="ltc-change"></td>
+                  <td class="table-data market-cap" id="ltc-market-cap"></td>
 
                   <td class="table-data">
                     <!-- <img src="./assets/images/chart-2.svg" width="100" height="40" alt="loss chart" class="chart"> -->
@@ -554,9 +522,9 @@
                     </div>
                   </td>
 
-                  <td class="table-data last-price" id="Cardano-price"></td>
-                  <td class="table-data last-update green" id="Cardano-change"></td>
-                  <td class="table-data market-cap" id="Cardano-market-cap"></td>
+                  <td class="table-data last-price" id="ada-price"></td>
+                  <td class="table-data last-update green" id="ada-change"></td>
+                  <td class="table-data market-cap" id="ada-market-cap"></td>
 
                   <td class="table-data">
                     <!-- <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart"> -->
@@ -589,9 +557,9 @@
                     </div>
                   </td>
 
-                  <td class="table-data last-price" id="Avalanche-price"></td>
-                  <td class="table-data last-update green" id="Avalanche-change"></td>
-                  <td class="table-data market-cap" id="Avalanche-market-cap"></td>
+                  <td class="table-data last-price" id="avax-price"></td>
+                  <td class="table-data last-update green" id="avax-change"></td>
+                  <td class="table-data market-cap" id="avax-market-cap"></td>
 
                   <td class="table-data">
                     <!-- <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart"> -->

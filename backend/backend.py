@@ -26,7 +26,7 @@ def get_data(ticker):
     }
     return jsonify(coin_data)
 
-@app.route('/api/bitcoin', methods=['GET'])
+@app.route('/api/btc', methods=['GET'])
 def btc():
     return get_data("BTC-USD")
 
@@ -34,19 +34,27 @@ def btc():
 def eth():
     return get_data("ETH-USD")
 
-@app.route('/api/tether', methods=['GET'])
+@app.route('/api/bnb', methods=['GET'])
+def bnb():
+    return get_data("BNB-USD")
+
+@app.route('/api/teth', methods=['GET'])
 def usdt():
     return get_data("USDT-USD")
 
-@app.route('/api/solana', methods=['GET'])
+@app.route('/api/sol', methods=['GET'])
 def sol():
     return get_data("SOL-USD")
 
-@app.route('/api/cardano', methods=['GET'])
+@app.route('/api/ltc', methods=['GET'])
+def ltc():
+    return get_data("LTC-USD")
+
+@app.route('/api/ada', methods=['GET'])
 def ada():
     return get_data("ADA-USD")
 
-@app.route('/api/avalanche', methods=['GET'])
+@app.route('/api/avax', methods=['GET'])
 def avax():
     return get_data("AVAX-USD")
 

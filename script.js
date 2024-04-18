@@ -1,20 +1,31 @@
-// Function to update Bitcoin data dynamically
 function updateBitcoinData() {
     // Make a GET request to your Flask backend endpoint
-    fetch('http://127.0.0.1:5000/api/bitcoin')
+    fetch('http://127.0.0.1:5000/api/btc')
 
         .then(response => response.json())
         .then(data => {
             // Update HTML elements with live data from the backend
-            document.getElementById('bitcoin-price').textContent = '$' + data.lastPrice.toFixed(2);
-            document.getElementById('bitcoin-change').textContent = data.percentageChange + '%';
-            document.getElementById('bitcoin-market-cap').textContent = '$' + data.marketCap.toFixed(2);
-            
+            document.getElementById('btc-price').textContent = '$' + data.lastPrice.toFixed(2);
+            var btcChangeElement = document.getElementById('btc-change');
+            btcChangeElement.textContent = data.percentageChange.toFixed(2) + '%';
+            // Change color to red if the change is negative
+            if (data.percentageChange < 0) {
+                btcChangeElement.style.color = 'red';
+            }
+            document.getElementById('btc-market-cap').textContent = '$' + Number(data.marketCap.toFixed(2)).toLocaleString('en-US');
             document.getElementById('btcmain').textContent = '$' + data.lastPrice.toFixed(2);
-
+            document.getElementById('btcopen').textContent = '$' + data.openPrice.toFixed(2);
+            var btcDelta = document.getElementById('btcdelta');
+            btcDelta.textContent = data.percentageChange.toFixed(2) + '%';
+            if (data.percentageChange < 0) {
+                btcDelta.style.color = 'red';
+            }else{
+                btcDelta.style.color='green';
+            }
         })
-        .catch(error => console.error('Error fetching Bitcoin data:', error));
+        .catch(error => console.error('Error fetching btc data:', error));
 }
+
 function updateEthereumData() {
     // Make a GET request to your Flask backend endpoint
     fetch('http://127.0.0.1:5000/api/eth')
@@ -42,21 +53,35 @@ function updateEthereumData() {
         })
         .catch(error => console.error('Error fetching ETH data:', error));
 }
+
 function updateTetherData() {
     // Make a GET request to your Flask backend endpoint
-    fetch('http://127.0.0.1:5000/api/tether')
+    fetch('http://127.0.0.1:5000/api/teth')
 
         .then(response => response.json())
         .then(data => {
             // Update HTML elements with live data from the backend
-            document.getElementById('Tether-price').textContent = '$' + data.lastPrice.toFixed(2);
-            document.getElementById('Tether-change').textContent = data.percentageChange + '%';
-            document.getElementById('Tether-market-cap').textContent = '$' + data.marketCap.toFixed(2);
-
+            document.getElementById('teth-price').textContent = '$' + data.lastPrice.toFixed(2);
+            var tethChangeElement = document.getElementById('teth-change');
+            tethChangeElement.textContent = data.percentageChange.toFixed(2) + '%';
+            // Change color to red if the change is negative
+            if (data.percentageChange < 0) {
+                tethChangeElement.style.color = 'red';
+            }
+            document.getElementById('teth-market-cap').textContent = '$' + Number(data.marketCap.toFixed(2)).toLocaleString('en-US');
             document.getElementById('tethmain').textContent = '$' + data.lastPrice.toFixed(2);
+            document.getElementById('tethopen').textContent = '$' + data.openPrice.toFixed(2);
+            var tethDelta = document.getElementById('tethdelta');
+            tethDelta.textContent = data.percentageChange.toFixed(2) + '%';
+            if (data.percentageChange < 0) {
+                tethDelta.style.color = 'red';
+            }else{
+                tethDelta.style.color='green';
+            }
         })
-        .catch(error => console.error('Error fetching Tether data:', error));
+        .catch(error => console.error('Error fetching TETH data:', error));
 }
+
 
 function updateBNBData() {
     // Make a GET request to your Flask backend endpoint
@@ -65,68 +90,137 @@ function updateBNBData() {
         .then(response => response.json())
         .then(data => {
             // Update HTML elements with live data from the backend
-            document.getElementById('BNB-price').textContent = '$' + data.lastPrice.toFixed(2);
-            document.getElementById('BNB-change').textContent = data.percentageChange + '%';
-            document.getElementById('BNB-market-cap').textContent = '$' + data.marketCap.toFixed(2);
-
+            document.getElementById('bnb-price').textContent = '$' + data.lastPrice.toFixed(2);
+            var bnbChangeElement = document.getElementById('bnb-change');
+            bnbChangeElement.textContent = data.percentageChange.toFixed(2) + '%';
+            // Change color to red if the change is negative
+            if (data.percentageChange < 0) {
+                bnbChangeElement.style.color = 'red';
+            }
+            document.getElementById('bnb-market-cap').textContent = '$' + Number(data.marketCap.toFixed(2)).toLocaleString('en-US');
             document.getElementById('bnbmain').textContent = '$' + data.lastPrice.toFixed(2);
+            document.getElementById('bnbopen').textContent = '$' + data.openPrice.toFixed(2);
+            var bnbDelta = document.getElementById('bnbdelta');
+            bnbDelta.textContent = data.percentageChange.toFixed(2) + '%';
+            if (data.percentageChange < 0) {
+                bnbDelta.style.color = 'red';
+            }else{
+                bnbDelta.style.color='green';
+            }
         })
         .catch(error => console.error('Error fetching BNB data:', error));
 }
+
 function updateSolanaData() {
     // Make a GET request to your Flask backend endpoint
-    fetch('http://127.0.0.1:5000/api/solana')
+    fetch('http://127.0.0.1:5000/api/sol')
 
         .then(response => response.json())
         .then(data => {
             // Update HTML elements with live data from the backend
-            document.getElementById('Solana-price').textContent = '$' + data.lastPrice.toFixed(2);//console.log(1);
-            document.getElementById('Solana-change').textContent = data.percentageChange + '%';//console.log(2);
-            document.getElementById('Solana-market-cap').textContent = '$' + data.marketCap.toFixed(2);//console.log(3);
+            document.getElementById('sol-price').textContent = '$' + data.lastPrice.toFixed(2);
+            var solChangeElement = document.getElementById('sol-change');
+            solChangeElement.textContent = data.percentageChange.toFixed(2) + '%';
+            // Change color to red if the change is negative
+            if (data.percentageChange < 0) {
+                solChangeElement.style.color = 'red';
+            }
+            document.getElementById('sol-market-cap').textContent = '$' + Number(data.marketCap.toFixed(2)).toLocaleString('en-US');
+            // document.getElementById('solmain').textContent = '$' + data.lastPrice.toFixed(2);
+            // document.getElementById('solopen').textContent = '$' + data.openPrice.toFixed(2);
+            // var solDelta = document.getElementById('soldelta');
+            // solDelta.textContent = data.percentageChange.toFixed(2) + '%';
+            // if (data.percentageChange < 0) {
+            //     solDelta.style.color = 'red';
+            // }else{
+            //     solDelta.style.color='green';
+            // }
         })
-        .catch(error => console.error('Error fetching Solana data:', error));
+        .catch(error => console.error('Error fetching SOL data:', error));
 }
 
 function updateLitecoinData() {
     // Make a GET request to your Flask backend endpoint
-    fetch('http://127.0.0.1:5000/api/litecoin')
+    fetch('http://127.0.0.1:5000/api/ltc')
 
         .then(response => response.json())
         .then(data => {
             // Update HTML elements with live data from the backend
-            document.getElementById('Litecoin-price').textContent = '$' + data.lastPrice.toFixed(2);
-            document.getElementById('Litecoin-change').textContent = data.percentageChange + '%';
-            document.getElementById('Litecoin-market-cap').textContent = '$' + data.marketCap.toFixed(2);
+            document.getElementById('ltc-price').textContent = '$' + data.lastPrice.toFixed(2);
+            var ltcChangeElement = document.getElementById('ltc-change');
+            ltcChangeElement.textContent = data.percentageChange.toFixed(2) + '%';
+            // Change color to red if the change is negative
+            if (data.percentageChange < 0) {
+                ltcChangeElement.style.color = 'red';
+            }
+            document.getElementById('ltc-market-cap').textContent = '$' + Number(data.marketCap.toFixed(2)).toLocaleString('en-US');
+            // document.getElementById('ltcmain').textContent = '$' + data.lastPrice.toFixed(2);
+            // document.getElementById('ltcopen').textContent = '$' + data.openPrice.toFixed(2);
+            // var ltcDelta = document.getElementById('ltcdelta');
+            // ltcDelta.textContent = data.percentageChange.toFixed(2) + '%';
+            // if (data.percentageChange < 0) {
+            //     ltcDelta.style.color = 'red';
+            // }else{
+            //     ltcDelta.style.color='green';
+            // }
         })
-        .catch(error => console.error('Error fetching Litecoin data:', error));
+        .catch(error => console.error('Error fetching LTC data:', error));
 }
 
 function updateCardanoData() {
     // Make a GET request to your Flask backend endpoint
-    fetch('http://127.0.0.1:5000/api/cardano')
+    fetch('http://127.0.0.1:5000/api/ada')
 
         .then(response => response.json())
         .then(data => {
             // Update HTML elements with live data from the backend
-            document.getElementById('Cardano-price').textContent = '$' + data.lastPrice.toFixed(2);
-            document.getElementById('Cardano-change').textContent = data.percentageChange + '%';
-            document.getElementById('Cardano-market-cap').textContent = '$' + data.marketCap.toFixed(2);
+            document.getElementById('ada-price').textContent = '$' + data.lastPrice.toFixed(2);
+            var adaChangeElement = document.getElementById('ada-change');
+            adaChangeElement.textContent = data.percentageChange.toFixed(2) + '%';
+            // Change color to red if the change is negative
+            if (data.percentageChange < 0) {
+                adaChangeElement.style.color = 'red';
+            }
+            document.getElementById('ada-market-cap').textContent = '$' + Number(data.marketCap.toFixed(2)).toLocaleString('en-US');
+            // document.getElementById('adamain').textContent = '$' + data.lastPrice.toFixed(2);
+            // document.getElementById('adaopen').textContent = '$' + data.openPrice.toFixed(2);
+            // var adaDelta = document.getElementById('adadelta');
+            // adaDelta.textContent = data.percentageChange.toFixed(2) + '%';
+            // if (data.percentageChange < 0) {
+            //     adaDelta.style.color = 'red';
+            // }else{
+            //     adaDelta.style.color='green';
+            // }
         })
-        .catch(error => console.error('Error fetching Cardano data:', error));
+        .catch(error => console.error('Error fetching ADA data:', error));
 }
 
 function updateAvalancheData() {
     // Make a GET request to your Flask backend endpoint
-    fetch('http://127.0.0.1:5000/api/avalanche')
+    fetch('http://127.0.0.1:5000/api/avax')
 
         .then(response => response.json())
         .then(data => {
             // Update HTML elements with live data from the backend
-            document.getElementById('Avalanche-price').textContent = '$' + data.lastPrice.toFixed(2);
-            document.getElementById('Avalanche-change').textContent = data.percentageChange + '%';
-            document.getElementById('Avalanche-market-cap').textContent = '$' + data.marketCap.toFixed(2);
+            document.getElementById('avax-price').textContent = '$' + data.lastPrice.toFixed(2);
+            var avaxChangeElement = document.getElementById('avax-change');
+            avaxChangeElement.textContent = data.percentageChange.toFixed(2) + '%';
+            // Change color to red if the change is negative
+            if (data.percentageChange < 0) {
+                avaxChangeElement.style.color = 'red';
+            }
+            document.getElementById('avax-market-cap').textContent = '$' + Number(data.marketCap.toFixed(2)).toLocaleString('en-US');
+            // document.getElementById('avaxmain').textContent = '$' + data.lastPrice.toFixed(2);
+            // document.getElementById('avaxopen').textContent = '$' + data.openPrice.toFixed(2);
+            // var avaxDelta = document.getElementById('avaxdelta');
+            // avaxDelta.textContent = data.percentageChange.toFixed(2) + '%';
+            // if (data.percentageChange < 0) {
+            //     avaxDelta.style.color = 'red';
+            // }else{
+            //     avaxDelta.style.color='green';
+            // }
         })
-        .catch(error => console.error('Error fetching Avalanche data:', error));
+        .catch(error => console.error('Error fetching AVAX data:', error));
 }
 
 
