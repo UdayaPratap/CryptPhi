@@ -9,21 +9,25 @@ CORS(app)  # This will enable CORS for all routes
 def get_bitcoin_data():
     # Fetch live data for Bitcoin from Yahoo Finance
     btc = yf.Ticker("BTC-USD")
-    btc_data = btc.history(period='1m')  # Fetch data for the last minute
+    btc_data = btc.history(period='1d')  # Fetch data 
 
     # Check if btc_data has at least one row
     if len(btc_data) >= 1:
         # Extract the required data (e.g., last price, market cap)
         last_price = btc_data['Close'].iloc[-1]
         market_cap = last_price * btc.info['circulatingSupply']
+        open_price = btc_data['Open'].iloc[-1]
+        percentage_change = ((last_price - open_price) / open_price) * 100
     else:
         last_price = None
         market_cap = None
+        open_price = None
 
     bitcoin_data = {
         "lastPrice": last_price,
-        "percentageChange": None,  # Can't calculate percentage change as there's no previous data point
-        "marketCap": market_cap
+        "percentageChange": percentage_change,  # Can't calculate percentage change as there's no previous data point
+        "marketCap": market_cap,
+        "openPrice": open_price
     }
 
     return jsonify(bitcoin_data)
@@ -38,10 +42,7 @@ def get_eth_data():
         # Extract the required data (e.g., last price, market cap)
         last_price = eth_data['Close'].iloc[-1]
         market_cap = last_price * eth.info['circulatingSupply']
-        # Calculate percentage change from 24 hours ago
         open_price = eth_data['Open'].iloc[-1]
-        print(open_price)
-        print(last_price)
         percentage_change = ((last_price - open_price) / open_price) * 100
     else:
         last_price = 1
@@ -50,7 +51,7 @@ def get_eth_data():
 
     eth_data = {
         "lastPrice": last_price,
-        "percentageChange": percentage_change,  # Can't calculate percentage change as there's no previous data point
+        "percentageChange": percentage_change, 
         "marketCap": market_cap,
         "openPrice": open_price
     }
@@ -67,13 +68,16 @@ def get_tether_data():
         # Extract the required data (e.g., last price, market cap)
         last_price = usdt_data['Close'].iloc[-1]
         market_cap = last_price * usdt.info['circulatingSupply']
+        open_price = tether_data['Open'].iloc[-1]
+        percentage_change = ((last_price - open_price) / open_price) * 100
     else:
         last_price = None
         market_cap = None
+        percentage_change = None
 
     tether_data = {
         "lastPrice": last_price,
-        "percentageChange": None,  # Can't calculate percentage change as there's no previous data point
+        "percentageChange": percentage_change, 
         "marketCap": market_cap
     }
 
@@ -83,20 +87,23 @@ def get_tether_data():
 def get_bnb_data():
     # Fetch live data for Binance Coin from Yahoo Finance
     bnb = yf.Ticker("BNB-USD")
-    bnb_data = bnb.history(period='1m')  # Fetch data for the last minute
+    bnb_data = bnb.history(period='1d')  # Fetch data for the last minute
 
     # Check if bnb_data has at least one row
     if len(bnb_data) >= 1:
         # Extract the required data (e.g., last price, market cap)
         last_price = bnb_data['Close'].iloc[-1]
         market_cap = last_price * bnb.info['circulatingSupply']
+        open_price = bnb_data['Open'].iloc[-1]
+        percentage_change = ((last_price - open_price) / open_price) * 100
     else:
         last_price = None
         market_cap = None
+        percentage_change = None
 
     bnb_data = {
         "lastPrice": last_price,
-        "percentageChange": None,  # Can't calculate percentage change as there's no previous data point
+        "percentageChange": percentage_change,  
         "marketCap": market_cap
     }
 
@@ -106,66 +113,69 @@ def get_bnb_data():
 def get_solana_data():
     # Fetch live data for Solana from Yahoo Finance
     sol = yf.Ticker("SOL-USD")
-    sol_data = sol.history(period='1m')  # Fetch data for the last minute
+    sol_data = sol.history(period='1d')  # Fetch data for the last minute
 
     # Check if sol_data has at least one row
     if len(sol_data) >= 1:
         # Extract the required data (e.g., last price, market cap)
         last_price = sol_data['Close'].iloc[-1]
         market_cap = last_price * sol.info['circulatingSupply']
+        open_price = sol_data['Open'].iloc[-1]
+        percentage_change = ((last_price - open_price) / open_price) * 100
     else:
         last_price = None
         market_cap = None
 
     solana_data = {
         "lastPrice": last_price,
-        "percentageChange": None,  # Can't calculate percentage change as there's no previous data point
+        "percentageChange": percentage_change, 
         "marketCap": market_cap
     }
-    print(solana_data)
     return jsonify(solana_data)
 
 @app.route('/api/litecoin', methods=['GET'])
 def get_litecoin_data():
     # Fetch live data for Litecoin from Yahoo Finance
     ltc = yf.Ticker("LTC-USD")
-    ltc_data = ltc.history(period='1m')  # Fetch data for the last minute
+    ltc_data = ltc.history(period='1d')  # Fetch data for the last minute
 
     # Check if ltc_data has at least one row
     if len(ltc_data) >= 1:
         # Extract the required data (e.g., last price, market cap)
         last_price = ltc_data['Close'].iloc[-1]
         market_cap = last_price * ltc.info['circulatingSupply']
+        open_price = ltc_data['Open'].iloc[-1]
+        percentage_change = ((last_price - open_price) / open_price) * 100
     else:
         last_price = None
         market_cap = None
 
     litecoin_data = {
         "lastPrice": last_price,
-        "percentageChange": None,  # Can't calculate percentage change as there's no previous data point
+        "percentageChange": percentage_change,
         "marketCap": market_cap
     }
-    print(litecoin_data)
     return jsonify(litecoin_data)
 
 @app.route('/api/cardano', methods=['GET'])
 def get_cardano_data():
     # Fetch live data for Cardano from Yahoo Finance
     ada = yf.Ticker("ADA-USD")
-    ada_data = ada.history(period='1m')  # Fetch data for the last minute
+    ada_data = ada.history(period='1d')  # Fetch data for the last minute
 
     # Check if ada_data has at least one row
     if len(ada_data) >= 1:
         # Extract the required data (e.g., last price, market cap)
         last_price = ada_data['Close'].iloc[-1]
         market_cap = last_price * ada.info['circulatingSupply']
+        percentage_change = ((last_price - open_price) / open_price) * 100
     else:
         last_price = None
         market_cap = None
 
     cardano_data = {
         "lastPrice": last_price,
-        "percentageChange": None,  # Can't calculate percentage change as there's no previous data point
+        "percentageChange": percentage_change,  
         "marketCap": market_cap
     }
     print(cardano_data)
@@ -175,20 +185,23 @@ def get_cardano_data():
 def get_avalanche_data():
     # Fetch live data for Avalanche from Yahoo Finance
     avax = yf.Ticker("AVAX-USD")
-    avax_data = avax.history(period='1m')  # Fetch data for the last minute
+    avax_data = avax.history(period='1d')  # Fetch data for the last minute
+    
 
     # Check if avax_data has at least one row
     if len(avax_data) >= 1:
         # Extract the required data (e.g., last price, market cap)
         last_price = avax_data['Close'].iloc[-1]
         market_cap = last_price * avax.info['circulatingSupply']
+        open_price = btc_data['Open'].iloc[-1]
+        percentage_change = ((last_price - open_price) / open_price) * 100
     else:
         last_price = None
         market_cap = None
 
     avalanche_data = {
         "lastPrice": last_price,
-        "percentageChange": None,  # Can't calculate percentage change as there's no previous data point
+        "percentageChange": percentage_change,  
         "marketCap": market_cap
     }
     print(avalanche_data)
